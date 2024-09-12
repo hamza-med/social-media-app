@@ -10,7 +10,7 @@ import { hash } from "@node-rs/argon2";
 import { generateIdFromEntropySize } from "lucia";
 import prisma from "@/lib/prisma";
 import { isRedirectError } from "next/dist/client/components/redirect";
-export async function signup(
+export async function signUp(
   credentials: SignUpValues,
 ): Promise<{ error: string }> {
   try {
