@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 
 import LoadingButton from "@/components/LoadingButton";
 import { PasswordInput } from "@/components/PasswordInput";
@@ -20,7 +19,7 @@ import { signUp } from "./actions";
 
 export default function SignUpForm() {
   const [error, setError] = useState<string>();
-//? if use state it will return loading false before redirection it won't take this into consideration
+  //? if use state it will return loading false before redirection it won't take this into consideration
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<SignUpValues>({
@@ -51,7 +50,11 @@ export default function SignUpForm() {
             <FormItem>
               <FormLabel>Username</FormLabel>
               <FormControl>
-                <Input placeholder="Username" {...field} />
+                <Input
+                  placeholder="Username"
+                  className="bg-stone-100"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -64,7 +67,12 @@ export default function SignUpForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email" type="email" {...field} />
+                <Input
+                  placeholder="Email"
+                  type="email"
+                  className="bg-stone-100"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -77,7 +85,11 @@ export default function SignUpForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <PasswordInput placeholder="Password" {...field} />
+                <PasswordInput
+                  placeholder="Password"
+                  className="bg-stone-100"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

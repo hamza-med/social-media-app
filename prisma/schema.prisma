@@ -35,7 +35,7 @@ model Session {
   id        String   @id
   userId    String
   expiresAt DateTime
-  User      User     @relation(fields: [userId], references: [id], onDelete: Cascade) //* onDelete:Cascade: When deleting the user there is no point keeping the session
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade) //* onDelete:Cascade: When deleting the user there is no point keeping the session
 
   @@map("sessions") //? To rename the table in DB
 }
