@@ -4,6 +4,7 @@ import { Roboto } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import ReactQueryProvider from "./ReactQueryProvider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -32,14 +33,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <ReactQueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </ReactQueryProvider>
         <Toaster />
       </body>
     </html>
