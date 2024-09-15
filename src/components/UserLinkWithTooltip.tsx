@@ -11,7 +11,7 @@ import UserTooltip from "./UserTooltip";
 interface UserLinkWithTooltipProps extends PropsWithChildren {
   username: string;
 }
-
+//*If we have 404 error user not found it is useless to retry the fetch
 export default function UserLinkWithTooltip({
   children,
   username,

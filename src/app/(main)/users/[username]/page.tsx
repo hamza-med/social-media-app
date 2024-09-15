@@ -36,7 +36,7 @@ const getUser = cache(async (username: string, loggedInUserId: string) => {
 });
 //*It receives also params same as the page
 //*we didn't add description and other metadata because if you share the page you can't see
-//*the description because you need to login so it is not necessary
+//*the description because you need to login so it is not necessary and the same applies for crawlers
 
 export async function generateMetadata({
   params: { username },
