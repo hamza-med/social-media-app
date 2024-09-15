@@ -31,6 +31,7 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import Resizer from "react-image-file-resizer";
 import { useUpdateProfileMutation } from "./mutations";
+import CropImageDialog from "@/components/CropImageDialog";
 
 interface EditProfileDialogProps {
   user: UserData;
@@ -186,7 +187,7 @@ function AvatarInput({ src, onImageCropped }: AvatarInputProps) {
           <Camera size={24} />
         </span>
       </button>
-      {/* {imageToCrop && (
+      {imageToCrop && (
         <CropImageDialog
           src={URL.createObjectURL(imageToCrop)}
           cropAspectRatio={1}
@@ -198,7 +199,7 @@ function AvatarInput({ src, onImageCropped }: AvatarInputProps) {
             }
           }}
         />
-      )} */}
+      )}
     </>
   );
 }
