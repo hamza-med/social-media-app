@@ -12,6 +12,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import UserPosts from "./UserPosts";
+import Linkify from "@/components/Linkify";
 
 interface PageProps {
   params: { username: string };
@@ -85,7 +86,7 @@ interface UserProfileProps {
   loggedInUserId: string;
 }
 //*We created the Follower component because we need to see the number of followers in real time
-//*So it needs to be connected to the cache not from the user prop so we create a client component to 
+//*So it needs to be connected to the cache not from the user prop so we create a client component to
 //*use the hook useFollowerInfo
 async function UserProfile({ user, loggedInUserId }: UserProfileProps) {
   const followerInfo: FollowerInfo = {
@@ -128,9 +129,11 @@ async function UserProfile({ user, loggedInUserId }: UserProfileProps) {
       {user.bio && (
         <>
           <hr />
-          <div className="overflow-hidden whitespace-pre-line break-words">
-            {user.bio}
-          </div>
+          <Linkify>
+            <div className="overflow-hidden whitespace-pre-line break-words">
+              {user.bio}
+            </div>
+          </Linkify>
         </>
       )}
     </div>
