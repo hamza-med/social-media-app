@@ -16,7 +16,7 @@ export function useDeletePostMutation() {
   //*In case of deleting in post detail so you don't end up in an empty page
   const router = useRouter();
   const pathname = usePathname();
-
+  //*onSuccess gets the data returned from the muattionFN
   const mutation = useMutation({
     mutationFn: deletePost,
     onSuccess: async (deletedPost) => {
