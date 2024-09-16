@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import { updateUserProfile } from "./actions";
 import { useToast } from "@/hooks/use-toast";
 
-//?why not default export :because the idea behind creating this file is to put many mutations in one place
+//?Why not default export :because the idea behind creating this file is to put many mutations in one place
 //?otherwise we name the file with the mutation name
 export function useUpdateProfileMutation() {
   const { toast } = useToast();

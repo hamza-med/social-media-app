@@ -57,6 +57,7 @@ export default function EditProfileDialog({
   const [croppedAvatar, setCroppedAvatar] = useState<Blob | null>(null);
 
   async function onSubmit(values: UpdateUserProfileValues) {
+    //*Convert the blob to file format
     const newAvatarFile = croppedAvatar
       ? new File([croppedAvatar], `avatar_${user.id}.webp`)
       : undefined;
@@ -147,6 +148,8 @@ function AvatarInput({ src, onImageCropped }: AvatarInputProps) {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  //*Resizing the image on select before cropping
+  //*Set the type to button otherwise it will be considered submit button
   function onImageSelected(image: File | undefined) {
     if (!image) return;
 
