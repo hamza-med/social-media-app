@@ -13,7 +13,7 @@ import LoadingButton from "@/components/LoadingButton";
 import useMediaUpload, { Attachment } from "./useMediaUpload";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { ImageIcon, X } from "lucide-react";
+import { ImageIcon, Loader2, X } from "lucide-react";
 import { useRef } from "react";
 
 export default function PostEditor() {
@@ -71,7 +71,19 @@ export default function PostEditor() {
           className="max-h-[20rem] w-full overflow-y-auto rounded-2xl bg-background px-5 py-3"
         />
       </div>
+      {!!attachments.length && (
+        <AttachmentPreviews
+          attachments={attachments}
+          removeAttachment={removeAttachment}
+        />
+      )}
       <div className="flex items-center justify-end gap-3">
+        {isUploading && (
+          <>
+            <span className="text-sm">Uploading... {uploadProgress ?? 0}%</span>
+            <Loader2 className="size-5 animate-spin text-primary" />
+          </>
+        )}
         <AddAttachmentsButton
           onFilesSelected={startUpload}
           disabled={isUploading || attachments.length >= 5}
