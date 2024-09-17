@@ -37,10 +37,10 @@ export default function MenuBar({ className }: MenuBarProps) {
         title="Messages"
         asChild
       >
-        <Link href="/messages">
+        {/* <Link href="/messages">
           <Mail />
           <span className="hidden lg:inline">Messages</span>
-        </Link>
+        </Link> */}
       </Button>
       <Button
         variant="ghost"
