@@ -1,3 +1,4 @@
+"use client";
 import { PostData } from "@/lib/types";
 import { cn, formatRelativeDate } from "@/lib/utils";
 import Link from "next/link";
@@ -7,6 +8,7 @@ import { useSession } from "@/app/(main)/SessionProvider";
 import Linkify from "../Linkify";
 import UserTooltip from "../UserTooltip";
 import Image from "next/image";
+import { Media } from "@prisma/client";
 
 interface PostProps {
   post: PostData;
