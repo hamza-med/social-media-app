@@ -1,5 +1,6 @@
 import { Prisma } from "@prisma/client";
 //? Turn this into a function to pass the dynamic userId
+//? Followers are selected with the user to pass it as initialData to other query
 export function getUserDataSelect(loggedInUserId: string) {
   return {
     id: true,
@@ -29,6 +30,7 @@ export type UserData = Prisma.UserGetPayload<{
   select: ReturnType<typeof getUserDataSelect>;
 }>;
 
+//? Likes are selected with the post to pass it as initialData to other query 
 export function getPostDataInclude(loggedInUserId: string) {
   return {
     user: {
