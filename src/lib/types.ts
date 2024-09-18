@@ -30,7 +30,7 @@ export type UserData = Prisma.UserGetPayload<{
   select: ReturnType<typeof getUserDataSelect>;
 }>;
 
-//? Likes are selected with the post to pass it as initialData to other query 
+//? Likes are selected with the post to pass it as initialData to other query
 export function getPostDataInclude(loggedInUserId: string) {
   return {
     user: {
@@ -38,6 +38,14 @@ export function getPostDataInclude(loggedInUserId: string) {
     },
     attachments: true,
     likes: {
+      where: {
+        userId: loggedInUserId,
+      },
+      select: {
+        userId: true,
+      },
+    },
+    bookmarks: {
       where: {
         userId: loggedInUserId,
       },
@@ -69,4 +77,8 @@ export interface FollowerInfo {
 export interface LikeInfo {
   likes: number;
   isLikedByUser: boolean;
+}
+
+export interface BookmarkInfo {
+  isBookmarkedByUser: boolean;
 }
