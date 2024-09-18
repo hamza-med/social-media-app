@@ -62,7 +62,7 @@ export default function Post({ post }: PostProps) {
       <LikeButton
         postId={post.id}
         initialState={{
-          likes: post._count.like,
+          likes: post._count.likes,
           isLikedByUser: post.likes.some(({ userId }) => userId === user.id),
         }}
       />
