@@ -70,6 +70,24 @@ export interface PostsPage {
   nextCursor: string | null;
 }
 
+export function getCommentDataInclude(loggedInUserId: string) {
+  return {
+    user: {
+      select: getUserDataSelect(loggedInUserId),
+    },
+  } satisfies Prisma.CommentInclude;
+}
+
+export type CommentData = Prisma.CommentGetPayload<{
+  include: ReturnType<typeof getCommentDataInclude>;
+}>;
+
+//?Opposite of pages we show the latest comments first then the oldest (so we need previous cursor)
+export interface CommentsPage {
+  comments: CommentData[];
+  previousCursor: string | null;
+}
+
 export interface FollowerInfo {
   followers: number;
   isFollowedByUser: boolean;
